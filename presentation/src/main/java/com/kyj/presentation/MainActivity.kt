@@ -1,4 +1,4 @@
-package com.kyj.coronacentermap
+package com.kyj.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
