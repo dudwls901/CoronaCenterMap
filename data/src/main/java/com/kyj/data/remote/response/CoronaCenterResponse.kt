@@ -1,5 +1,8 @@
 package com.kyj.data.remote.response
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class CoronaCenterResponse(
     val currentCount: Int,
     val `data`: List<CoronaCenter>,

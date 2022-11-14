@@ -1,5 +1,8 @@
 package com.kyj.data.remote.response
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class CoronaCenter(
     val address: String,
     val centerName: String,
