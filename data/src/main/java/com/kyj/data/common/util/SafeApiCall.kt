@@ -12,7 +12,7 @@ import timber.log.Timber
 import java.io.IOException
 import java.net.SocketTimeoutException
 
-suspend fun <T> safeApiCall(callFunction: suspend () -> Response<T>): NetworkResult {
+suspend fun <T> safeApiCall(callFunction: suspend () -> Response<T>): NetworkResult<T> {
     return try {
         val response = callFunction.invoke()
         NetworkResult.Success(response.body()!!)
