@@ -1,6 +1,7 @@
 package com.kyj.coronacentermap.di
 
 import com.kyj.data.datasource.CoronaCenterRemoteDataSource
+import com.kyj.data.datasourceimpl.CoronaCenterRemoteDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,6 +15,6 @@ abstract class DataSourceModule {
     @Binds
     @Singleton
     abstract fun bindCoronaCenterRemoteDataSource(
-        coronaCenterRemoteDataSource: CoronaCenterRemoteDataSource
+        coronaCenterRemoteDataSourceImpl: CoronaCenterRemoteDataSourceImpl,
     ): CoronaCenterRemoteDataSource
 }
