@@ -8,3 +8,6 @@ const val CENTER = "centers"
 const val PER_PAGE = 10
 const val MESSAGE_KEY = "message"
 const val ERROR_KEY = "error"
+
+const val DB_NAME = "corona_center_database"
+const val CORONA_CENTER_TABLE = "corona_center_table"
