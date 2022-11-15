@@ -69,4 +69,9 @@ dependencies {
 
     //Serialization
     implementation(Serialization.SERIALIZATION)
+
+    //Room
+    implementation(Room.ROOM_KTX)
+    implementation(Room.ROOM_RUNTIME)
+    kapt(Room.ROOM_COMPILER)
 }

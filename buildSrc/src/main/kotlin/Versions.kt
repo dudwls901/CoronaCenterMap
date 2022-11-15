@@ -36,7 +36,7 @@ object Versions {
     const val CONSTRAINT_LAYOUT = "2.1.4"
     const val LIFECYCLE = "2.5.1"
     const val HILT = "2.42"
-
+    const val ROOM = "2.4.3"
     //library
     const val RETROFIT = "2.9.0"
     const val RETROFIT_SERIALIZATION_CONVERTER = "0.8.0"
