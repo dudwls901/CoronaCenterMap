@@ -10,10 +10,13 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven(
+            url = "https://naver.jfrog.io/artifactory/maven/"
+        )
     }
 }
 rootProject.name = "CoronaCenterMap"
-include (":app")
-include (":presentation")
-include (":data")
-include (":domain")
+include(":app")
+include(":presentation")
+include(":data")
+include(":domain")
