@@ -6,6 +6,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
+import com.kyj.presentation.common.constant.PROGRESS_END_TIME_MILLIS
+import com.kyj.presentation.common.constant.PROGRESS_MIDDLE_TIME_MILLIS
+import com.kyj.presentation.common.constant.PROGRESS_START_TIME_MILLIS
 import com.kyj.presentation.databinding.ActivitySplashBinding
 import com.kyj.presentation.util.event.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,16 +21,16 @@ class SplashActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashBinding
     private val splashViewModel: SplashViewModel by viewModels()
-    private var duration = 0
+    private var progressDuration = PROGRESS_START_TIME_MILLIS
     private val initProgress: Job by lazy {
         lifecycleScope.launch {
-            startAnimation(1600)
+            startAnimation(PROGRESS_MIDDLE_TIME_MILLIS)
         }
     }
     private val continueProgress: Job by lazy {
         lifecycleScope.launch {
             initProgress.cancel()
-            startAnimation(2000)
+            startAnimation(PROGRESS_END_TIME_MILLIS)
             navigateMainActivity()
         }
     }
@@ -63,10 +66,10 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private suspend fun startAnimation(end: Int) {
-        while (duration <= end) {
-            binding.loadingBar.progress = duration / 20
+        while (progressDuration <= end) {
+            binding.loadingBar.progress = progressDuration / 20
             delay(1L)
-            duration++
+            progressDuration++
         }
     }
 
