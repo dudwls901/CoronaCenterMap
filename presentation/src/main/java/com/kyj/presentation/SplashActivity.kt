@@ -21,13 +21,13 @@ class SplashActivity : AppCompatActivity() {
     private var duration = 0
     private val initProgress: Job by lazy {
         lifecycleScope.launch {
-            startAnim(1600)
+            startAnimation(1600)
         }
     }
     private val continueProgress: Job by lazy {
         lifecycleScope.launch {
             initProgress.cancel()
-            startAnim(2000)
+            startAnimation(2000)
             navigateMainActivity()
         }
     }
@@ -51,11 +51,18 @@ class SplashActivity : AppCompatActivity() {
         lifecycleScope.launch {
             if (splashViewModel.getAllCoronaCenters(10)) {
                 continueProgress.start()
+            } else {
+                stopAnimation()
             }
         }
     }
 
-    private suspend fun startAnim(end: Int) {
+    private fun stopAnimation() {
+        initProgress.cancel()
+        continueProgress.cancel()
+    }
+
+    private suspend fun startAnimation(end: Int) {
         while (duration <= end) {
             binding.loadingBar.progress = duration / 20
             delay(1L)

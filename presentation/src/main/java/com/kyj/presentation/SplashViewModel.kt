@@ -11,7 +11,6 @@ import com.kyj.domain.util.getErrorMessage
 import com.kyj.presentation.util.event.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -36,7 +35,6 @@ class SplashViewModel @Inject constructor(
     private suspend fun getEachPageCoronaCenters(page: Int): Boolean = viewModelScope.async {
         var isSuccess: Boolean
         with(getCoronaCentersUseCase(page)) {
-            Timber.d("$this")
             isSuccess = when (this) {
                 is NetworkResult.Success -> {
                     insertCoronaCentersUseCase(this.value.data.toTypedArray())
