@@ -9,6 +9,8 @@ import com.kyj.presentation.R
 import com.kyj.presentation.common.util.getColor
 import com.kyj.presentation.databinding.ActivityMainBinding
 import com.naver.maps.geometry.LatLng
+import com.naver.maps.map.CameraAnimation
+import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.MapFragment
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
@@ -45,6 +47,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
+    override fun onMapReady(map: NaverMap) {
+        naverMap = map
+        observeDatas()
+    }
+
     private fun observeDatas() {
         mainViewModel.coronaCenters.observe(this) { coronaCenters ->
             coronaCenters.forEach { coronaCenter ->
@@ -68,19 +75,26 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         return Marker().apply {
             position = LatLng(coronaCenter.lat, coronaCenter.lng)
             onClickListener = overlayClickListener
-            tag = coronaCenter.centerName
+            tag = coronaCenter.id
             icon = markerIcon
             iconTintColor = coronaCenter.centerType.getColor()
         }
     }
 
     private val overlayClickListener = Overlay.OnClickListener { overlay ->
+        moveCamera(overlay.tag as Int)
         false
     }
 
-
-    override fun onMapReady(map: NaverMap) {
-        naverMap = map
-        observeDatas()
+    private fun moveCamera(id: Int) {
+        mainViewModel.getMarkerLatLng(id)?.let { (lat, lng) ->
+            val cameraUpdate = CameraUpdate.scrollTo(
+                LatLng(
+                    lat,
+                    lng
+                )
+            ).animate(CameraAnimation.Easing)
+            naverMap.moveCamera(cameraUpdate)
+        }
     }
 }
