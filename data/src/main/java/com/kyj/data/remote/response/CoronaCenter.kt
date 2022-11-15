@@ -7,6 +7,7 @@ import kotlinx.serialization.Serializable
 data class CoronaCenter(
     val address: String,
     val centerName: String,
+    val centerType: String,
     val facilityName: String,
     val id: Int,
     val lat: String,
@@ -17,6 +18,7 @@ data class CoronaCenter(
     fun toDomainModel(): CoronaCenter = CoronaCenter(
         address = address,
         centerName = centerName,
+        centerType = centerType,
         facilityName = facilityName,
         id = id,
         lat = lat,
