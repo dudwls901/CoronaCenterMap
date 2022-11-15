@@ -1,16 +1,32 @@
 package com.kyj.data.repositoryimpl
 
 import com.kyj.data.datasource.CoronaCenterRemoteDataSource
+import com.kyj.data.local.datasource.CoronaCenterLocalDataSource
+import com.kyj.data.local.dto.toEntity
+import com.kyj.domain.model.CoronaCenter
 import com.kyj.domain.model.CoronaCentersInfo
 import com.kyj.domain.repository.CoronaCenterRepository
 import com.kyj.domain.util.NetworkResult
 import com.kyj.domain.util.mapDomainModel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class CoronaCenterRepositoryImpl @Inject constructor(
     private val coronaCenterRemoteDataSource: CoronaCenterRemoteDataSource,
+    private val coronaCenterLocalDataSource: CoronaCenterLocalDataSource,
 ) : CoronaCenterRepository {
     override suspend fun getCoronaCenters(page: Int): NetworkResult<CoronaCentersInfo> {
         return coronaCenterRemoteDataSource.getCoronaCenters(page).mapDomainModel { it.toDomainModel() }
+    }
+
+    override fun getCoronaCentersLocal(): Flow<List<CoronaCenter>> {
+        return coronaCenterLocalDataSource.getCoronaCenters().map { coronaCenters ->
+            coronaCenters.map { it.toDomainModel() }
+        }
+    }
+
+    override suspend fun insertCenters(vararg coronaCenter: CoronaCenter) {
+        coronaCenterLocalDataSource.insertCenters(*coronaCenter.map { it.toEntity() }.toTypedArray())
     }
 }

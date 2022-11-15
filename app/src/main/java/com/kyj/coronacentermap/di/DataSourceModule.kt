@@ -2,6 +2,8 @@ package com.kyj.coronacentermap.di
 
 import com.kyj.data.datasource.CoronaCenterRemoteDataSource
 import com.kyj.data.datasourceimpl.CoronaCenterRemoteDataSourceImpl
+import com.kyj.data.local.datasource.CoronaCenterLocalDataSource
+import com.kyj.data.local.datasourceimpl.CoronaCenterLocalDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,4 +19,11 @@ abstract class DataSourceModule {
     abstract fun bindCoronaCenterRemoteDataSource(
         coronaCenterRemoteDataSourceImpl: CoronaCenterRemoteDataSourceImpl,
     ): CoronaCenterRemoteDataSource
+
+    @Binds
+    @Singleton
+    abstract fun bindCoronaCenterLocalDataSource(
+        coronaCenterLocalDataSourceImpl: CoronaCenterLocalDataSourceImpl,
+    ): CoronaCenterLocalDataSource
+
 }
