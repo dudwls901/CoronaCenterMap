@@ -1,4 +1,4 @@
-package com.kyj.presentation.util.event
+package com.kyj.presentation.common.util.event
 
 import androidx.lifecycle.Observer
 

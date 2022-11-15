@@ -3,9 +3,9 @@
     package="com.kyj.presentation">
 
     <application>
-        <activity android:name="com.kyj.presentation.MainActivity" />
+        <activity android:name="com.kyj.presentation.common.view.main.MainActivity" />
         <activity
-            android:name="com.kyj.presentation.SplashActivity"
+            android:name="com.kyj.presentation.common.view.splash.SplashActivity"
             android:exported="true"
             android:theme="@style/Splash">
             <intent-filter>

@@ -1,7 +1,8 @@
-package com.kyj.presentation
+package com.kyj.presentation.common.view.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.kyj.presentation.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

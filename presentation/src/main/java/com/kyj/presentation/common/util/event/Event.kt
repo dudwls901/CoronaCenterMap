@@ -1,4 +1,4 @@
-package com.kyj.presentation.util.event
+package com.kyj.presentation.common.util.event
 
 /**
  * Used as a wrapper for data that is exposed via a LiveData that represents an event.

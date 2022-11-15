@@ -1,4 +1,4 @@
-package com.kyj.presentation
+package com.kyj.presentation.common.view.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import com.kyj.domain.usecase.GetCoronaCentersUseCase
 import com.kyj.domain.usecase.InsertCoronaCentersUseCase
 import com.kyj.domain.util.NetworkResult
 import com.kyj.domain.util.getErrorMessage
-import com.kyj.presentation.util.event.Event
+import com.kyj.presentation.common.util.event.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import javax.inject.Inject
