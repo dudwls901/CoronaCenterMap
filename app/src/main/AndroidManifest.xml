@@ -15,5 +15,4 @@
         android:theme="@style/Theme.CoronaCenterMap"
         tools:targetApi="31">
     </application>
-
 </manifest>
