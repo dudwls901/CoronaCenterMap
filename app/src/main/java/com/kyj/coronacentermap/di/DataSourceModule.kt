@@ -1,7 +1,7 @@
 package com.kyj.coronacentermap.di
 
-import com.kyj.data.datasource.CoronaCenterRemoteDataSource
-import com.kyj.data.datasourceimpl.CoronaCenterRemoteDataSourceImpl
+import com.kyj.data.remote.datasource.CoronaCenterRemoteDataSource
+import com.kyj.data.remote.datasourceimpl.CoronaCenterRemoteDataSourceImpl
 import com.kyj.data.local.datasource.CoronaCenterLocalDataSource
 import com.kyj.data.local.datasourceimpl.CoronaCenterLocalDataSourceImpl
 import dagger.Binds

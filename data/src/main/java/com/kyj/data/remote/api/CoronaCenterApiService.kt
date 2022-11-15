@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface CoronaCenterApiService {
 
     @GET(CENTER)
-    suspend fun getCoronaCenters(
+    suspend fun downloadCoronaCenters(
         @Query("page") page: Int,
         @Query("perPage") perPage: Int = PER_PAGE,
     ): Response<CoronaCenterResponse>

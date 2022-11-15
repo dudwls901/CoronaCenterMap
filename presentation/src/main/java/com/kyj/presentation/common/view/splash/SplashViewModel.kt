@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kyj.domain.usecase.GetCoronaCentersUseCase
+import com.kyj.domain.usecase.DownloadCoronaCentersUseCase
 import com.kyj.domain.usecase.InsertCoronaCentersUseCase
 import com.kyj.domain.util.NetworkResult
 import com.kyj.domain.util.getErrorMessage
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val getCoronaCentersUseCase: GetCoronaCentersUseCase,
+    private val downloadCoronaCentersUseCase: DownloadCoronaCentersUseCase,
     private val insertCoronaCentersUseCase: InsertCoronaCentersUseCase,
 ) : ViewModel() {
 
@@ -34,7 +34,7 @@ class SplashViewModel @Inject constructor(
 
     private suspend fun getEachPageCoronaCenters(page: Int): Boolean = viewModelScope.async {
         var isSuccess: Boolean
-        with(getCoronaCentersUseCase(page)) {
+        with(downloadCoronaCentersUseCase(page)) {
             isSuccess = when (this) {
                 is NetworkResult.Success -> {
                     insertCoronaCentersUseCase(this.value.data.toTypedArray())
