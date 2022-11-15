@@ -42,7 +42,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun observeDatas() {
         splashViewModel.errorMessage.observe(this, EventObserver {
-            Snackbar.make(binding.root, it, Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
         })
     }
 
