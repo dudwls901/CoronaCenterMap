@@ -18,6 +18,7 @@
     - [ ] 10개 페이지 저장 로직 (반복) Data Layer에서 처리? 🤔
 - [x] 지도 화면 🟣
     - [x] Naver Map SDK 에러 처리 🔹
+    - [ ] Room return 타입 Flow 제거 🤔
     - [x] 마커 생성 🔹
         - [x] 저장된 리스트의 데이터를 통해 마커 생성 🔹
         - [x] CenterType에 따라 마커 색상 구분 🔹
