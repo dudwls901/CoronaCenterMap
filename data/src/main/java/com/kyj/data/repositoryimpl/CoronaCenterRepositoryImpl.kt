@@ -1,6 +1,6 @@
 package com.kyj.data.repositoryimpl
 
-import com.kyj.data.datasource.CoronaCenterRemoteDataSource
+import com.kyj.data.remote.datasource.CoronaCenterRemoteDataSource
 import com.kyj.data.local.datasource.CoronaCenterLocalDataSource
 import com.kyj.data.local.dto.toEntity
 import com.kyj.domain.model.CoronaCenter
@@ -16,11 +16,11 @@ class CoronaCenterRepositoryImpl @Inject constructor(
     private val coronaCenterRemoteDataSource: CoronaCenterRemoteDataSource,
     private val coronaCenterLocalDataSource: CoronaCenterLocalDataSource,
 ) : CoronaCenterRepository {
-    override suspend fun getCoronaCenters(page: Int): NetworkResult<CoronaCentersInfo> {
-        return coronaCenterRemoteDataSource.getCoronaCenters(page).mapDomainModel { it.toDomainModel() }
+    override suspend fun downloadCoronaCenters(page: Int): NetworkResult<CoronaCentersInfo> {
+        return coronaCenterRemoteDataSource.downloadCoronaCenters(page).mapDomainModel { it.toDomainModel() }
     }
 
-    override fun getCoronaCentersLocal(): Flow<List<CoronaCenter>> {
+    override fun getCoronaCenters(): Flow<List<CoronaCenter>> {
         return coronaCenterLocalDataSource.getCoronaCenters().map { coronaCenters ->
             coronaCenters.map { it.toDomainModel() }
         }

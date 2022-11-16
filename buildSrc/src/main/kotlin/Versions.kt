@@ -46,4 +46,9 @@ object Versions {
     //serialization
     const val SERIALIZATION = "1.3.2"
 
+    //Naver map
+    const val NAVER_MAP = "3.16.0"
+
+    //GMS Location
+    const val GMS_LOCATION = "16.0.0"
 }

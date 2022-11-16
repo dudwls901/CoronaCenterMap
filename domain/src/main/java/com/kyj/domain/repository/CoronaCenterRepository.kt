@@ -6,7 +6,7 @@ import com.kyj.domain.util.NetworkResult
 import kotlinx.coroutines.flow.Flow
 
 interface CoronaCenterRepository {
-    suspend fun getCoronaCenters(page: Int): NetworkResult<CoronaCentersInfo>
-    fun getCoronaCentersLocal(): Flow<List<CoronaCenter>>
+    suspend fun downloadCoronaCenters(page: Int): NetworkResult<CoronaCentersInfo>
+    fun getCoronaCenters(): Flow<List<CoronaCenter>>
     suspend fun insertCenters(vararg coronaCenter: CoronaCenter)
 }

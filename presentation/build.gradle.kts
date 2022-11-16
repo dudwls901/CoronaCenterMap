@@ -32,7 +32,7 @@ android {
     }
 
     buildFeatures {
-        dataBinding = true
+        viewBinding = true
     }
 }
 
@@ -62,4 +62,9 @@ dependencies {
     //hilt
     implementation(Hilt.HILT_ANDROID)
     kapt(Hilt.HILT_ANDROID_COMPILER)
+
+    //naver map
+    implementation(NaverMap.NAVER_MAP)
+
+    implementation(GooglePlay.location)
 }

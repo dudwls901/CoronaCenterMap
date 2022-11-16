@@ -1,6 +1,6 @@
 package com.kyj.coronacentermap.di
 
-import androidx.databinding.ktx.BuildConfig
+import androidx.viewbinding.BuildConfig
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.kyj.data.common.constant.BASE_URL
 import com.kyj.data.common.constant.ENCODED_KEY

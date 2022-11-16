@@ -62,3 +62,11 @@ object Timber {
 object Serialization {
     const val SERIALIZATION = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.SERIALIZATION}"
 }
+
+object NaverMap {
+    const val NAVER_MAP = "com.naver.maps:map-sdk:${Versions.NAVER_MAP}"
+}
+
+object GooglePlay {
+    const val location = "com.google.android.gms:play-services-location:${Versions.GMS_LOCATION}"
+}

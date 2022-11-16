@@ -1,10 +1,10 @@
-package com.kyj.data.datasource
+package com.kyj.data.remote.datasource
 
 import com.kyj.data.remote.response.CoronaCenterResponse
 import com.kyj.domain.util.NetworkResult
 
 interface CoronaCenterRemoteDataSource {
-    suspend fun getCoronaCenters(
+    suspend fun downloadCoronaCenters(
         page: Int,
     ): NetworkResult<CoronaCenterResponse>
 }

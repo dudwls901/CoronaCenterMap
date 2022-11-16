@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CoronaCenterMap</string>
+    <string name="current_position">current position</string>
 </resources>
