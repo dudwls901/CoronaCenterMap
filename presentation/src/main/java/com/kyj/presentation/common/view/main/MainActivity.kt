@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private val overlayClickListener: Overlay.OnClickListener by lazy {
         Overlay.OnClickListener { overlay ->
             mainViewModel.updateSelectedCoronaCenter(overlay.tag as Int)
-            false
+            true
         }
     }
 
@@ -60,7 +60,16 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(map: NaverMap) {
         naverMap = map
+        settingMap()
         observeDatas()
+    }
+
+    private fun settingMap() {
+        naverMap.setOnMapClickListener { pointF, latLng ->
+            if(infoWindow.isAdded){
+                infoWindow.close()
+            }
+        }
     }
 
     private fun observeDatas() {
