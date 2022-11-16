@@ -65,4 +65,6 @@ dependencies {
 
     //naver map
     implementation(NaverMap.NAVER_MAP)
+
+    implementation(GooglePlay.location)
 }
