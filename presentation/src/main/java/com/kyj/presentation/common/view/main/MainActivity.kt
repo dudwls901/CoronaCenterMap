@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.snackbar.Snackbar
 import com.kyj.domain.model.CoronaCenter
 import com.kyj.presentation.R
 import com.kyj.presentation.common.util.getColor
+import com.kyj.presentation.common.util.getNaverMapErrorMessage
 import com.kyj.presentation.databinding.ActivityMainBinding
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraAnimation
@@ -55,12 +57,20 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        getNaverMapForSDK()
+    }
+
+    private fun getNaverMapForSDK() {
         //콜백을 통해 NaverMap 가져오기
-        mapFragment = supportFragmentManager.findFragmentById(R.id.naverMap) as MapFragment?
-            ?: MapFragment.newInstance().also {
-                supportFragmentManager.beginTransaction().add(R.id.naverMap, it).commit()
-            }
-        mapFragment.getMapAsync(this)
+        try {
+            mapFragment = supportFragmentManager.findFragmentById(R.id.naverMap) as MapFragment?
+                ?: MapFragment.newInstance().also {
+                    supportFragmentManager.beginTransaction().add(R.id.naverMap, it).commit()
+                }
+            mapFragment.getMapAsync(this)
+        } catch (e: Exception) {
+            Snackbar.make(binding.root, e.getNaverMapErrorMessage(), Snackbar.LENGTH_LONG).show()
+        }
     }
 
     override fun onMapReady(map: NaverMap) {
