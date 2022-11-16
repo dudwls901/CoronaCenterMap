@@ -1,4 +1,4 @@
-package com.kyj.presentation.common.view.splash
+package com.kyj.presentation.view.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

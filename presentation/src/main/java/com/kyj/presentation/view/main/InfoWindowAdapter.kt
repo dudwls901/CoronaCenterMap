@@ -1,4 +1,4 @@
-package com.kyj.presentation.common.view.main
+package com.kyj.presentation.view.main
 
 import android.content.Context
 import android.view.LayoutInflater

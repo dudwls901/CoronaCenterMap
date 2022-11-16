@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".common.view.splash.SplashActivity">
+    tools:context=".view.splash.SplashActivity">
 
     <ProgressBar
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"

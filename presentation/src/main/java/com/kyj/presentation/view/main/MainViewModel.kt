@@ -1,4 +1,4 @@
-package com.kyj.presentation.common.view.main
+package com.kyj.presentation.view.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

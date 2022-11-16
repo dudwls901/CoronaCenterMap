@@ -1,4 +1,4 @@
-package com.kyj.presentation.common.view.splash
+package com.kyj.presentation.view.splash
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
-import com.kyj.presentation.common.view.main.MainActivity
+import com.kyj.presentation.view.main.MainActivity
 import com.kyj.presentation.common.constant.PROGRESS_END_TIME_MILLIS
 import com.kyj.presentation.common.constant.PROGRESS_MIDDLE_TIME_MILLIS
 import com.kyj.presentation.common.constant.PROGRESS_START_TIME_MILLIS
