@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.kyj.presentation.common.view.main.MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
+    <FrameLayout
         android:id="@+id/naverMap"
         android:name="com.naver.maps.map.MapFragment"
         android:layout_width="0dp"
@@ -15,6 +15,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/currentPositionButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_gravity="end|bottom"
+            android:contentDescription="@string/current_position"
+            android:src="@drawable/ic_baseline_gps_fixed_24"
+            android:translationZ="1dp"
+            app:tint="@color/purple_200" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
