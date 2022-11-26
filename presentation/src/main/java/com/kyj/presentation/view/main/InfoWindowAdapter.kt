@@ -23,7 +23,7 @@ class InfoWindowAdapter(
         return binding.root
     }
 
-    fun bindViews(binding: ItemInfoWindowBinding) {
+    private fun bindViews(binding: ItemInfoWindowBinding) {
         binding.nameTextView.text = coronaCenter.centerName
         binding.addressTextView.text = coronaCenter.address
         binding.facilityNameTextView.text = coronaCenter.facilityName
