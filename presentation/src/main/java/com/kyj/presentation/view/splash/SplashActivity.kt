@@ -53,7 +53,7 @@ class SplashActivity : AppCompatActivity() {
     private fun startDownload() {
         initProgress.start()
         lifecycleScope.launch {
-            if (splashViewModel.getAllCoronaCenters(10)) {
+            if (splashViewModel.getAllCoronaCenters()) {
                 continueProgress.start()
             } else {
                 stopAnimation()

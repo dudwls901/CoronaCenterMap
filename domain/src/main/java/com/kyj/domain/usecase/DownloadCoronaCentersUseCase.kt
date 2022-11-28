@@ -8,5 +8,6 @@ import javax.inject.Inject
 class DownloadCoronaCentersUseCase @Inject constructor(
     private val coronaCenterRepository: CoronaCenterRepository,
 ) {
-    suspend operator fun invoke(page: Int): NetworkResult<CoronaCentersInfo> = coronaCenterRepository.downloadCoronaCenters(page)
+    suspend operator fun invoke(): NetworkResult<CoronaCentersInfo> =
+        coronaCenterRepository.downloadCoronaCenters()
 }

@@ -10,3 +10,6 @@ const val MESSAGE_KEY = "msg"
 
 const val DB_NAME = "corona_center_database"
 const val CORONA_CENTER_TABLE = "corona_center_table"
+
+const val START_PAGE = 1
+const val END_PAGE = 10
