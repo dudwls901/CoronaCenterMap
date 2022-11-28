@@ -10,7 +10,7 @@ import com.kyj.domain.util.NetworkResult
 import com.kyj.domain.util.getErrorMessage
 import com.kyj.presentation.common.util.event.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.async
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,16 +23,16 @@ class SplashViewModel @Inject constructor(
     val errorMessage: LiveData<Event<String>>
         get() = _errorMessage
 
-    suspend fun getAllCoronaCenters(maxPage: Int) = viewModelScope.async {
+    suspend fun getAllCoronaCenters(maxPage: Int) = withContext(viewModelScope.coroutineContext) {
         var isSuccess = true
         for (page in 1..maxPage) {
             isSuccess = getEachPageCoronaCenters(page)
             if (!isSuccess) break
         }
         isSuccess
-    }.await()
+    }
 
-    private suspend fun getEachPageCoronaCenters(page: Int): Boolean = viewModelScope.async {
+    private suspend fun getEachPageCoronaCenters(page: Int): Boolean = withContext(viewModelScope.coroutineContext) {
         var isSuccess: Boolean
         with(downloadCoronaCentersUseCase(page)) {
             isSuccess = when (this) {
@@ -51,5 +51,5 @@ class SplashViewModel @Inject constructor(
             }
         }
         isSuccess
-    }.await()
+    }
 }
