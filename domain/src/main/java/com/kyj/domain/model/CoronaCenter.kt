@@ -13,7 +13,7 @@ data class CoronaCenter(
 )
 
 fun parseToCenterTypeEnum(centerType: String): CenterType = when (centerType) {
-     "중앙/권역" -> CenterType.CENTER
+     CenterType.CENTER.type -> CenterType.CENTER
     else -> CenterType.REGION
 
 }
