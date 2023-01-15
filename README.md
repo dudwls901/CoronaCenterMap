@@ -4,7 +4,7 @@
 https://user-images.githubusercontent.com/66052467/202099063-ffabf707-6478-41f8-b2ad-6b76e21df34c.mov
 
 ### 기능 목록
-[FEATURE_LIST.md](https://github.com/dudwls901/CoronaCenterMap/blob/main/Docs/FEATURE_LIST.md)
+[FEATURE_LIST.md](https://github.com/dudwls901/CoronaCenterMap/blob/main/docs/FEATURE_LIST.md)
 
 ### Structure
 
